@@ -11,8 +11,18 @@ public class InventoryFlow {
 		while(true)
 		{
 			
-			System.out.println("------------------------------------------------------\nWelcome to the Inventory Management System. Select how you \nwould like to interact with the system:\n------------------------------------------------------");
-			System.out.println("1 - \tAdd Meat to inventory\n2 - \tAdd Paper to inventory\n3 - \tAdd tires to inventory\n4 - \tCheck Stock\n5 - \tChange Location of inventory\n6 - \tExit System");
+			System.out.println(""
+					+ "------------------------------------------------------\n"
+					+ "Welcome to the Inventory Management System. Select how you \n"
+					+ "would like to interact with the system:\n"
+					+ "------------------------------------------------------");
+			System.out.println(""
+					+ "1 - \tAdd Meat to inventory\n"
+					+ "2 - \tAdd Paper to inventory\n"
+					+ "3 - \tAdd tires to inventory\n"
+					+ "4 - \tCheck Stock\n"
+					+ "5 - \tChange Location of inventory\n"
+					+ "6 - \tExit System");
 			System.out.print("Enter Number: ");
 			
 			
@@ -37,7 +47,8 @@ public class InventoryFlow {
 				case 6:
 					System.out.println("Closing System.");
 					System.exit(0);
-				
+				default:
+					System.out.println("Please Enter A Correct Value");
 			}
 		}
 		
@@ -93,8 +104,6 @@ public class InventoryFlow {
 			meat.setQuantity(total);
 			System.out.println("Meat successfully added!");
 		}
-			
-			
 		
 	}
 }
