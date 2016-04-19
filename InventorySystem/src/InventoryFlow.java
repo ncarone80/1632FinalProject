@@ -1,12 +1,19 @@
 import java.util.Scanner;
 
 public class InventoryFlow {
-	static Meat meat = new Meat();
-	static Paper paper = new Paper();
-	static Tires tires = new Tires();
+	Meat meat;
+	Paper paper;
+	Tires tires;
+	
+	public InventoryFlow() {
+		meat = new Meat();
+		paper = new Paper();
+		tires = new Tires();
+	}
 	
 	public static void main (String [] args){
 		Scanner reader = new Scanner(System.in);
+		InventoryFlow iFlow = new InventoryFlow();
 		//User Interface
 		while(true)
 		{
@@ -30,25 +37,25 @@ public class InventoryFlow {
 			switch (n) 
 			{
 				case 1:
-					int totalMeat = addMeat();
-					meat.setQuantity(totalMeat); 
+					int totalMeat = iFlow.addMeat();
+					iFlow.meat.setQuantity(totalMeat); 
 					System.out.println("Meat successfully added!");
 					break;
 				case 2:
-					int totalPaper = addPaper();
-					paper.setQuantity(totalPaper);
+					int totalPaper = iFlow.addPaper();
+					iFlow.paper.setQuantity(totalPaper);
 					System.out.println("Paper successfully added!");
 					break;
 				case 3:
-					int totalTires = addTires();
-					tires.setQuantity(totalTires);
+					int totalTires = iFlow.addTires();
+					iFlow.tires.setQuantity(totalTires);
 					System.out.println("Tires successfully added!");
 					break;
 				case 4:
-					checkStock();
+					iFlow.checkStock();
 					break;
 				case 5:
-					changeLocation();
+					iFlow.changeLocation();
 					break;
 				case 6:
 					System.out.println("Closing System.");
@@ -59,7 +66,7 @@ public class InventoryFlow {
 		}
 		
 	}
-	public static int addPaper() {
+	public int addPaper() {
 		Scanner read = new Scanner(System.in);
 		int upc = paper.getUPC();
 		if (upc == 0){
@@ -80,7 +87,7 @@ public class InventoryFlow {
 		}
 		
 	}
-	public static int addTires() {
+	public int addTires() {
 		Scanner read = new Scanner(System.in);
 		int upc = tires.getUPC();
 		if (upc == 0){
@@ -101,7 +108,7 @@ public class InventoryFlow {
 		}
 		
 	}
-	private static void checkStock() {
+	private void checkStock() {
 		Scanner read = new Scanner(System.in);
 		System.out.print("Please enter name of stock to check (meat, paper, or tires): ");
 		String input = read.nextLine();
@@ -119,11 +126,11 @@ public class InventoryFlow {
 			System.out.println("Current quantity of Tires is: " + quantity + ".");
 		}
 	}
-	private static void changeLocation() {
+	private void changeLocation() {
 		// TODO Auto-generated method stub
 		
 	}
-	public static int addMeat(){
+	public int addMeat(){
 		Scanner read = new Scanner(System.in);
 		int upc = meat.getUPC();
 		if (upc == 0){
