@@ -29,8 +29,4 @@ public class Meat {
 	public void setQuantity(int n){	
 		quantity = n;
 	}
-	
-	public void setLocation(String s){
-		location = s;
-	}
 }

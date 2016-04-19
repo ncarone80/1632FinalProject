@@ -19,7 +19,7 @@ public class InventoryFlow {
 			System.out.println(""
 					+ "1 - \tAdd Meat to inventory\n"
 					+ "2 - \tAdd Paper to inventory\n"
-					+ "3 - \tAdd tires to inventory\n"
+					+ "3 - \tAdd Tires to inventory\n"
 					+ "4 - \tCheck Stock\n"
 					+ "5 - \tChange Location of inventory\n"
 					+ "6 - \tExit System");
@@ -30,13 +30,19 @@ public class InventoryFlow {
 			switch (n) 
 			{
 				case 1:
-					addMeat();
+					int totalMeat = addMeat();
+					meat.setQuantity(totalMeat); 
+					System.out.println("Meat successfully added!");
 					break;
 				case 2:
-					addPaper();
+					int totalPaper = addPaper();
+					paper.setQuantity(totalPaper);
+					System.out.println("Paper successfully added!");
 					break;
 				case 3:
-					addTires();
+					int totalTires = addTires();
+					tires.setQuantity(totalTires);
+					System.out.println("Tires successfully added!");
 					break;
 				case 4:
 					checkStock();
@@ -53,12 +59,46 @@ public class InventoryFlow {
 		}
 		
 	}
-	private static void addPaper() {
-		// TODO Auto-generated method stub
+	public static int addPaper() {
+		Scanner read = new Scanner(System.in);
+		int upc = paper.getUPC();
+		if (upc == 0){
+			System.out.println("System has no UPC for Paper yet");
+			System.out.print("Please enter UPC for Paper: ");
+			int newUpc = read.nextInt();
+			paper.setUPC(newUpc);
+			System.out.print("Please insert quantity for Paper: ");
+			int total = read.nextInt();
+			return total;
+		}
+		else{
+			System.out.print("Please insert quantity for Paper: ");
+			int newQuantity = read.nextInt();
+			int current = paper.getQuantity();
+			int total = newQuantity + current;
+			return total;
+		}
 		
 	}
-	private static void addTires() {
-		// TODO Auto-generated method stub
+	public static int addTires() {
+		Scanner read = new Scanner(System.in);
+		int upc = tires.getUPC();
+		if (upc == 0){
+			System.out.println("System has no UPC for Tires yet");
+			System.out.print("Please enter UPC for Tires: ");
+			int newUpc = read.nextInt();
+			tires.setUPC(newUpc);
+			System.out.print("Please insert quantity for Tires: ");
+			int total = read.nextInt();
+			return total;
+		}
+		else{
+			System.out.print("Please insert quantity for Tires: ");
+			int newQuantity = read.nextInt();
+			int current = tires.getQuantity();
+			int total = newQuantity + current;
+			return total;
+		}
 		
 	}
 	private static void checkStock() {
@@ -83,7 +123,7 @@ public class InventoryFlow {
 		// TODO Auto-generated method stub
 		
 	}
-	public static void addMeat(){
+	public static int addMeat(){
 		Scanner read = new Scanner(System.in);
 		int upc = meat.getUPC();
 		if (upc == 0){
@@ -92,17 +132,15 @@ public class InventoryFlow {
 			int newUpc = read.nextInt();
 			meat.setUPC(newUpc);
 			System.out.print("Please insert quantity for Meat: ");
-			int q = read.nextInt();
-			meat.setQuantity(q);
-			System.out.println("Meat successfully added!");
+			int total = read.nextInt();
+			return total;
 		}
 		else{
 			System.out.print("Please insert quantity for Meat: ");
 			int newQuantity = read.nextInt();
 			int current = meat.getQuantity();
 			int total = newQuantity + current;
-			meat.setQuantity(total);
-			System.out.println("Meat successfully added!");
+			return total;
 		}
 		
 	}

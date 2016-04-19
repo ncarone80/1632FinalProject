@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+
 public class MeatTest {
 	static Meat m;
 
@@ -44,7 +45,7 @@ public class MeatTest {
 	@Test
 	public void testSetQuantity(){
 		int q = m.quantity;
-		m.setQuantity(20);
+		m.setQuantity(20);	
 		assertNotEquals(m.quantity,q);
 		m.setQuantity(q);
 		assertEquals(m.quantity,q);
@@ -58,15 +59,6 @@ public class MeatTest {
 		assertNotEquals(m.upc,u);
 		m.setUPC(u);
 		assertEquals(m.upc,u);
-	}
-	
-	@Test
-	public void testSetLocation(){
-		String l = m.location;
-		m.setLocation("123 Pennsylvania Street");
-		assertNotEquals(m.location,l);
-		m.setLocation(l);
-		assertEquals(m.location,l);
 	}
 	
 

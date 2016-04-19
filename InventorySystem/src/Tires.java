@@ -23,4 +23,11 @@ public class Tires {
 	public String getLocation(){
 		return location;
 	}
+	
+	public void setUPC(int n){
+		upc = n;
+	}
+	public void setQuantity(int n){	
+		quantity = n;
+	}
 }
