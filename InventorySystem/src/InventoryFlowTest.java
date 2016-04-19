@@ -1,5 +1,5 @@
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import java.util.InputMismatchException;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -19,12 +19,10 @@ public class InventoryFlowTest {
 	}
 
 	@Test
-	public void testAddMeat() {
+	public void testAddMeat(){
 		iFlow.meat.quantity = 0;
 		//Input = 12 Output = 12
 		assertEquals(iFlow.addMeat(),12);
-		//Input = String Output = 0
-		assertEquals(iFlow.addMeat(),0);
 		//change upc to 0
 		iFlow.meat.upc = 0;
 		//Input = 1,36 Output = 36
@@ -59,8 +57,6 @@ public class InventoryFlowTest {
 		iFlow.paper.quantity = 0;
 		//Input = 12 Output = 12
 		assertEquals(iFlow.addPaper(),12);
-		//Input = String Output = 0
-		assertEquals(iFlow.addPaper(),0);
 		//change upc to 0
 		iFlow.paper.upc = 0;
 		//Input = 2,36 Output = 36
@@ -74,8 +70,6 @@ public class InventoryFlowTest {
 		iFlow.tires.quantity = 0;
 		//Input = 12 Output = 12
 		assertEquals(iFlow.addTires(),12);
-		//Input = String Output = 0 Shows strings are handled
-		assertEquals(iFlow.addTires(),0);
 		//change upc to 0
 		iFlow.tires.upc = 0;
 		//Input = 3,36 Output = 36

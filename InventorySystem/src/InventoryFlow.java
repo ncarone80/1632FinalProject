@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class InventoryFlow {
 	Meat meat;
@@ -19,8 +20,8 @@ public class InventoryFlow {
 	
 	public static void main (String [] args){
 		Scanner reader = new Scanner(System.in);
-		
 		InventoryFlow iFlow = new InventoryFlow();
+		
 		//User Interface
 		while(true)
 		{
@@ -37,7 +38,7 @@ public class InventoryFlow {
 					+ "4 - \tCheck Stock\n"
 					+ "5 - \tSell Meat\n"
 					+ "6 - \tSell Paper\n"
-					+ "7 = \tSell Tires\n"
+					+ "7 - \tSell Tires\n"
 					+ "8 - \tExit System");
 			System.out.print("Enter Number: ");
 			
@@ -81,6 +82,9 @@ public class InventoryFlow {
 				case 8:
 					System.out.println("Closing System.");
 					System.exit(0);
+				case 9:
+					System.out.println("Please enter a number");
+					break;
 				default:
 					System.out.println("Please Enter A Correct Value");
 			}
@@ -152,65 +156,84 @@ public class InventoryFlow {
 		
 	}
 
-	public int addPaper() {
+	public int addPaper(){
 		Scanner read = new Scanner(System.in);
+		int newUpc;
+		int total = paper.getQuantity();
 		int upc = paper.getUPC();
 		if (upc == 0){
 			System.out.println("System has no UPC for Paper yet");
 			System.out.print("Please enter UPC for Paper: ");
-			int newUpc = read.nextInt();
-			paper.setUPC(newUpc);
-			System.out.print("Please insert quantity for Paper: ");
-			int total = read.nextInt();
+			if(read.hasNextInt()){
+				newUpc = read.nextInt();
+				paper.setUPC(newUpc);
+				System.out.print("Please insert quantity for Paper: ");
+				if(read.hasNextInt()){
+					total = read.nextInt();
+				}
+			}
 			return total;
+			
 		}
 		else{
 			System.out.print("Please insert quantity for Paper: ");
 			int newQuantity = read.nextInt();
-			int current = paper.getQuantity();
-			int total = newQuantity + current;
+			total += newQuantity;
 			return total;
 		}
 		
 	}
 	public int addTires() {
 		Scanner read = new Scanner(System.in);
+		int newUpc;
+		int total = tires.getQuantity();
 		int upc = tires.getUPC();
 		if (upc == 0){
 			System.out.println("System has no UPC for Tires yet");
 			System.out.print("Please enter UPC for Tires: ");
-			int newUpc = read.nextInt();
-			tires.setUPC(newUpc);
-			System.out.print("Please insert quantity for Tires: ");
-			int total = read.nextInt();
+			if(read.hasNextInt()){
+				newUpc = read.nextInt();
+				tires.setUPC(newUpc);
+				System.out.print("Please insert quantity for Tires: ");
+				if(read.hasNextInt()){
+					total = read.nextInt();
+				}
+			}
 			return total;
+			
 		}
 		else{
 			System.out.print("Please insert quantity for Tires: ");
 			int newQuantity = read.nextInt();
-			int current = tires.getQuantity();
-			int total = newQuantity + current;
+			total += newQuantity;
 			return total;
 		}
 		
 	}
+	
 	public int addMeat(){
 		Scanner read = new Scanner(System.in);
+		int newUpc;
+		int total = meat.getQuantity();
 		int upc = meat.getUPC();
 		if (upc == 0){
 			System.out.println("System has no UPC for Meat yet");
 			System.out.print("Please enter UPC for Meat: ");
-			int newUpc = read.nextInt();
-			meat.setUPC(newUpc);
-			System.out.print("Please insert quantity for Meat: ");
-			int total = read.nextInt();
+			if(read.hasNextInt()){
+				newUpc = read.nextInt();
+				meat.setUPC(newUpc);
+				System.out.print("Please insert quantity for Meat: ");
+				if(read.hasNextInt()){
+					total = read.nextInt();
+				}
+			}
 			return total;
+			
 		}
 		else{
 			System.out.print("Please insert quantity for Meat: ");
 			int newQuantity = read.nextInt();
-			int current = meat.getQuantity();
-			int total = newQuantity + current;
+			total += newQuantity;
 			return total;
 		}
 		
