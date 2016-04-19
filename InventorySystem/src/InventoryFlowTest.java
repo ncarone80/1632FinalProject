@@ -9,7 +9,10 @@ public class InventoryFlowTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		iFlow = new InventoryFlow();
+		Meat m = mock(Meat.class);
+		Paper p = mock(Paper.class);
+		Tires t = mock(Tires.class);
+		iFlow = new InventoryFlow(m,p,t);
 	}
 
 	@Test

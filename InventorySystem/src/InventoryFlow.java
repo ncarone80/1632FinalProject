@@ -11,6 +11,12 @@ public class InventoryFlow {
 		tires = new Tires();
 	}
 	
+	public InventoryFlow(Meat m, Paper p, Tires t){
+		meat = m;
+		paper = p;
+		tires = t;
+	}
+	
 	public static void main (String [] args){
 		Scanner reader = new Scanner(System.in);
 		InventoryFlow iFlow = new InventoryFlow();
