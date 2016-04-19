@@ -35,14 +35,6 @@ public class MeatTest {
 	}
 	
 	@Test
-	public void testGetLocation() {
-		assertNull(m.getLocation());
-		m.location = "4200 5th Ave";
-		assertNotNull(m.getLocation());
-		assertEquals(m.getLocation(), "4200 5th Ave");
-	}
-	
-	@Test
 	public void testSetQuantity(){
 		int q = m.quantity;
 		m.setQuantity(20);	

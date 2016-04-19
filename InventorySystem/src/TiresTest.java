@@ -34,14 +34,6 @@ public class TiresTest {
 	}
 	
 	@Test
-	public void testGetLocation() {
-		assertNull(t.getLocation());
-		t.location = "4200 5th Ave";
-		assertNotNull(t.getLocation());
-		assertEquals(t.getLocation(), "4200 5th Ave");
-	}
-	
-	@Test
 	public void testSetQuantity(){
 		int q = t.quantity;
 		t.setQuantity(20);

@@ -34,14 +34,6 @@ public class PaperTest {
 	}
 	
 	@Test
-	public void testGetLocation() {
-		assertNull(p.getLocation());
-		p.location = "4200 5th Ave";
-		assertNotNull(p.getLocation());
-		assertEquals(p.getLocation(), "4200 5th Ave");
-	}
-	
-	@Test
 	public void testSetQuantity(){
 		int q = p.quantity;
 		p.setQuantity(20);

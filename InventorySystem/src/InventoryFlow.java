@@ -19,6 +19,7 @@ public class InventoryFlow {
 	
 	public static void main (String [] args){
 		Scanner reader = new Scanner(System.in);
+		
 		InventoryFlow iFlow = new InventoryFlow();
 		//User Interface
 		while(true)
@@ -34,8 +35,10 @@ public class InventoryFlow {
 					+ "2 - \tAdd Paper to inventory\n"
 					+ "3 - \tAdd Tires to inventory\n"
 					+ "4 - \tCheck Stock\n"
-					+ "5 - \tChange Location of inventory\n"
-					+ "6 - \tExit System");
+					+ "5 - \tSell Meat\n"
+					+ "6 - \tSell Paper\n"
+					+ "7 = \tSell Tires\n"
+					+ "8 - \tExit System");
 			System.out.print("Enter Number: ");
 			
 			
@@ -61,9 +64,21 @@ public class InventoryFlow {
 					iFlow.checkStock();
 					break;
 				case 5:
-					iFlow.changeLocation();
+					int sellMeat = iFlow.sellMeat();
+					iFlow.meat.setQuantity(sellMeat);
+					System.out.println("Meat Sold");
 					break;
 				case 6:
+					int sellPaper = iFlow.sellPaper();
+					iFlow.paper.setQuantity(sellPaper);
+					System.out.println("Paper Sold");
+					break;
+				case 7:
+					int sellTires = iFlow.sellTires();
+					iFlow.tires.setQuantity(sellTires);
+					System.out.println("Tires Sold");
+					break;
+				case 8:
 					System.out.println("Closing System.");
 					System.exit(0);
 				default:
@@ -72,6 +87,71 @@ public class InventoryFlow {
 		}
 		
 	}
+	public int sellPaper() {
+		int quant = paper.getQuantity();
+		int total = quant;
+		if (quant == 0){
+			System.out.println("There is no Paper in stock");
+		}
+		else{
+			Scanner read = new Scanner(System.in);
+			System.out.println("Current stock of Paper is " + quant);
+			System.out.print("Enter amount to sell: ");
+			int sellAmount = read.nextInt();
+			if (sellAmount > quant){
+				System.out.println("There is not enough in stock");
+			}
+			else{
+				total = quant-sellAmount;
+			}
+		}
+		return total;
+	}
+	public int sellTires(){
+		int quant = tires.getQuantity();
+		int total = quant;
+		if (quant == 0){
+			System.out.println("There is no Tires in stock");
+		}
+		else{
+			Scanner read = new Scanner(System.in);
+			System.out.println("Current stock of Tires is " + quant);
+			System.out.print("Enter amount to sell: ");
+			int sellAmount = read.nextInt();
+			if (sellAmount > quant){
+				System.out.println("There is not enough in stock");
+			}
+			else{
+				total = quant-sellAmount;
+			}
+		}
+		return total;
+		
+		
+	}
+
+	public int sellMeat() {
+		int quant = meat.getQuantity();
+		int total = quant;
+		if (quant == 0){
+			System.out.println("There is no Meat in stock");
+		}
+		else{
+			Scanner read = new Scanner(System.in);
+			System.out.println("Current stock of Meat is " + quant);
+			System.out.print("Enter amount to sell: ");
+			int sellAmount = read.nextInt();
+			if (sellAmount > quant){
+				System.out.println("There is not enough in stock");
+			}
+			else{
+				total = quant-sellAmount;
+			}
+		}
+		return total;
+		
+	}
+
 	public int addPaper() {
 		Scanner read = new Scanner(System.in);
 		int upc = paper.getUPC();
@@ -114,28 +194,6 @@ public class InventoryFlow {
 		}
 		
 	}
-	private void checkStock() {
-		Scanner read = new Scanner(System.in);
-		System.out.print("Please enter name of stock to check (meat, paper, or tires): ");
-		String input = read.nextLine();
-		String cleanInput = input.toLowerCase();
-		if (cleanInput.equals("meat")){
-			int quantity = meat.getQuantity();
-			System.out.println("Current quantity of Meat is: " + quantity + ".");
-		}
-		else if (cleanInput.equals("paper")){
-			int quantity = paper.getQuantity();
-			System.out.println("Current quantity of Paper is: " + quantity + ".");
-		}
-		else if (cleanInput.equals("tires")){
-			int quantity = tires.getQuantity();
-			System.out.println("Current quantity of Tires is: " + quantity + ".");
-		}
-	}
-	private void changeLocation() {
-		// TODO Auto-generated method stub
-		
-	}
 	public int addMeat(){
 		Scanner read = new Scanner(System.in);
 		int upc = meat.getUPC();
@@ -156,5 +214,24 @@ public class InventoryFlow {
 			return total;
 		}
 		
+	}
+
+	private void checkStock() {
+		Scanner read = new Scanner(System.in);
+		System.out.print("Please enter name of stock to check (meat, paper, or tires): ");
+		String input = read.nextLine();
+		String cleanInput = input.toLowerCase();
+		if (cleanInput.equals("meat")){
+			int quantity = meat.getQuantity();
+			System.out.println("Current quantity of Meat is: " + quantity + ".");
+		}
+		else if (cleanInput.equals("paper")){
+			int quantity = paper.getQuantity();
+			System.out.println("Current quantity of Paper is: " + quantity + ".");
+		}
+		else if (cleanInput.equals("tires")){
+			int quantity = tires.getQuantity();
+			System.out.println("Current quantity of Tires is: " + quantity + ".");
+		}
 	}
 }
